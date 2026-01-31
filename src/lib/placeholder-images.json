@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-home",
+      "description": "Abstract technology background for home hero",
+      "imageUrl": "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhYnN0cmFjdCUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzY5ODI3NTY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract technology"
+    },
+    {
+      "id": "pillar-asociacion",
+      "description": "People collaborating for asociacion pillar",
+      "imageUrl": "https://images.unsplash.com/photo-1699371829060-98663499e437?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb21tdW5pdHklMjBjb2xsYWJvcmF0aW9ufGVufDB8fHx8MTc2OTg5OTcxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "community collaboration"
+    },
+    {
+      "id": "pillar-laboratorio",
+      "description": "A modern laboratory for laboratorio pillar",
+      "imageUrl": "https://images.unsplash.com/photo-1669216368805-04a14268fc47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWNobm9sb2d5JTIwbGFifGVufDB8fHx8MTc2OTc3MjMxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "technology lab"
+    },
+    {
+      "id": "pillar-servicios",
+      "description": "Professional meeting for servicios pillar",
+      "imageUrl": "https://images.unsplash.com/photo-1603202662747-00e33e7d1468?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzY5ODY2NjE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business meeting"
+    },
+    {
+      "id": "hero-asociacion",
+      "description": "Workshop or learning environment",
+      "imageUrl": "https://images.unsplash.com/photo-1760420940953-3958ad9f6287?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b3Jrc2hvcCUyMGNvbmZlcmVuY2V8ZW58MHx8fHwxNzY5ODk5NzE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "workshop conference"
+    },
+    {
+      "id": "mission-vision",
+      "description": "Abstract image for mission and vision",
+      "imageUrl": "https://images.unsplash.com/photo-1755134148020-f4a1508404e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGdvYWx8ZW58MHx8fHwxNzY5ODk5NzE1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract goal"
+    },
+    {
+      "id": "hero-laboratorio",
+      "description": "Research and development environment",
+      "imageUrl": "https://images.unsplash.com/photo-1694230155228-cdde50083573?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2NpZW5jZSUyMHJlc2VhcmNofGVufDB8fHx8MTc2OTg5OTcxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "science research"
+    },
+    {
+      "id": "project-gaia-sense",
+      "description": "Image representing sensors and data",
+      "imageUrl": "https://images.unsplash.com/photo-1762553025389-a0ee281d6744?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2Vuc29yfGVufDB8fHx8MTc2OTg0OTE4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data sensor"
+    },
+    {
+      "id": "project-robotics",
+      "description": "Robotic arm in a lab",
+      "imageUrl": "https://images.unsplash.com/photo-1767966769495-dbb5e14cab5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyb2JvdGljcyUyMGFybXxlbnwwfHx8fDE3Njk4OTk3MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "robotics arm"
+    },
+    {
+      "id": "project-data-viz",
+      "description": "Data visualization on a screen",
+      "imageUrl": "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3Njk4MzgyNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "hero-servicios",
+      "description": "B2B solutions and handshake",
+      "imageUrl": "https://images.unsplash.com/photo-1726607424599-db0c41681494?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHNvbHV0aW9ufGVufDB8fHx8MTc2OTg5OTcxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business solution"
+    },
+    {
+      "id": "service-odoo",
+      "description": "ERP system dashboard",
+      "imageUrl": "https://images.unsplash.com/photo-1761593280919-766a4acbcfca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzY5ODY1MTUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dashboard interface"
+    },
+    {
+      "id": "service-ai-agent",
+      "description": "AI agent concept",
+      "imageUrl": "https://images.unsplash.com/photo-1694903089438-bf28d4697d9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2OTg2MDM3M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "service-web-dev",
+      "description": "Code on a screen for web development",
+      "imageUrl": "https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3ZWIlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3Njk4MjQzMjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web development"
+    },
+    {
+      "id": "service-tech-partner",
+      "description": "Two people planning on a whiteboard",
+      "imageUrl": "https://images.unsplash.com/photo-1758873272115-a88d317d035e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdGFydHVwJTIwcGxhbm5pbmd8ZW58MHx8fHwxNzY5ODk5NzE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "startup planning"
+    }
+  ]
 }
