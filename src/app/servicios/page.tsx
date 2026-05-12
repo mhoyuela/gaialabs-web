@@ -6,10 +6,10 @@ import Link from "next/link";
 
 const services = [
   {
-    title: "Automatizaciones con Odoo",
-    description: "Optimizamos tus procesos de negocio implementando y personalizando Odoo ERP. Aumenta tu eficiencia, reduce costes y centraliza tu gestión.",
+    title: "Migración Odoo y VeriFactu 2026",
+    description: "Prepara tu empresa para la nueva ley antifraude. Migramos tu sistema y te ayudamos a tramitar el Kit Digital a coste cero.",
     icon: <ToyBrick className="w-12 h-12 text-primary" />,
-    image: PlaceHolderImages.find(img => img.id === 'service-odoo')
+    action: <Link href="/servicios/verifactu-odoo"><Button>Ver plan de adaptación</Button></Link>
   },
   {
     title: "Desarrollo de Agentes de IA",
@@ -63,15 +63,24 @@ export default function ServiciosPage() {
                 </div>
                 <h3 className="text-2xl font-bold font-headline">{service.title}</h3>
                 <p className="mt-4 text-muted-foreground flex-grow">{service.description}</p>
-                <Button variant="link" asChild className="mt-6">
-                  <Link href="/contacto">Solicitar información</Link>
-                </Button>
+                
+                {/* Aquí está la magia: si hay action, pone tu botón nuevo. Si no, pone el de contacto. */}
+                {service.action ? (
+                  <div className="mt-6">
+                    {service.action}
+                  </div>
+                ) : (
+                  <Button variant="link" asChild className="mt-6">
+                    <Link href="/contacto">Solicitar información</Link>
+                  </Button>
+                )}
+
               </div>
             ))}
           </div>
         </div>
       </section>
-
+      
       <section className="py-16 md:py-24 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -88,11 +97,13 @@ export default function ServiciosPage() {
             )}
             <div className="text-left">
               <Handshake className="w-16 h-16 text-primary mb-4" />
-              <h2 className="text-3xl md:text-4xl font-bold font-headline">Servicio "Tech Partner"</h2>
-              <p className="mt-6 text-lg text-muted-foreground">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline text-black">Servicio "Tech Partner"</h2>
+              
+              <p className="mt-6 text-lg text-black">
                 ¿Eres un emprendedor con una gran idea pero sin el equipo técnico para llevarla a cabo? Nos convertimos en tu socio tecnológico. Te ayudamos a validar tu idea, construir tu Mínimo Producto Viable (MVP) y te acompañamos en las primeras etapas de tu startup.
               </p>
-              <ul className="mt-6 space-y-2 text-muted-foreground">
+              
+              <ul className="mt-6 space-y-2 text-black">
                 <li className="flex items-start"><span className="text-primary mr-2">✓</span><span>Validación de idea y estrategia técnica.</span></li>
                 <li className="flex items-start"><span className="text-primary mr-2">✓</span><span>Desarrollo de MVP rápido y eficiente.</span></li>
                 <li className="flex items-start"><span className="text-primary mr-2">✓</span><span>Asesoramiento en escalabilidad y arquitectura.</span></li>

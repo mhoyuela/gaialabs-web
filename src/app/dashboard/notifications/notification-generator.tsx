@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { getNotificationSuggestions } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,7 +37,7 @@ function SubmitButton() {
 }
 
 export default function NotificationGenerator() {
-  const [state, formAction] = useFormState(getNotificationSuggestions, initialState);
+  const [state, formAction] = useActionState(getNotificationSuggestions, initialState);
   const { toast } = useToast();
 
   useEffect(() => {

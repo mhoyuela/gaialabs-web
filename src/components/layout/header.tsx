@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
-import { Logo } from "@/components/shared/logo";
+import { Logo } from "../shared/logo";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "./mobile-nav";
 import { Menu } from "lucide-react";
@@ -36,28 +36,39 @@ export function Header() {
           scrolled ? "bg-background/80 backdrop-blur-sm border-b" : "bg-transparent border-b border-transparent"
         )}
       >
-        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <Logo />
-          <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === link.href ? "text-primary" : "text-muted-foreground"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="hidden md:block">
-            <Button asChild>
-              <Link href="/dashboard/notifications">Dashboard</Link>
-            </Button>
+        <div className="container mx-auto px-4 h-20 flex items-center">
+          {/* BLOQUE IZQUIERDA: Logo */}
+          <div className="flex-1 flex justify-start">
+            <Logo scrolled={scrolled} />
           </div>
-          <div className="md:hidden">
+
+          {/* BLOQUE CENTRO: Navegación principal centradita */}
+          <nav className="hidden md:flex items-center gap-8">
+            {NAV_LINKS
+              .filter((link) => link.href !== '/dashboard' && link.label !== 'Dashboard')
+              .map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-primary whitespace-nowrap",
+                    pathname === link.href 
+                      ? "text-primary" 
+                      : scrolled ? "text-black" : "text-white"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))} {/* <--- Aquí faltaba cerrar el map */}
+          </nav>
+
+          {/* BLOQUE DERECHA: Contrapeso para el centrado */}
+          <div className="hidden md:flex flex-1 justify-end">
+            {/* Espacio vacío para equilibrar el logo de la izquierda */}
+          </div>
+
+          {/* Menú móvil */}
+          <div className="md:hidden ml-auto">
             <Button
               variant="ghost"
               size="icon"

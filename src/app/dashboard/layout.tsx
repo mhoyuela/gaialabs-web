@@ -11,7 +11,7 @@ import {
   SidebarInset,
 } from "@/components/ui/sidebar";
 import { DASHBOARD_LINKS } from "@/lib/constants";
-import { Logo } from "@/components/shared/logo";
+import { Logo } from "../../components/shared/logo";
 import { usePathname } from "next/navigation";
 
 export default function DashboardLayout({

@@ -1,13 +1,16 @@
 import Link from "next/link";
-import { Rocket } from "lucide-react";
-import { cn } from "@/lib/utils";
 
-export function Logo({ className }: { className?: string }) {
+interface LogoProps {
+  scrolled?: boolean;
+}
+
+export function Logo({ scrolled }: LogoProps) {
   return (
-    <Link href="/" className={cn("flex items-center gap-2", className)}>
-      <Rocket className="h-7 w-7 text-primary" />
-      <span className="text-xl font-bold tracking-tight text-foreground font-headline">
-        GaiaLabs
+    <Link href="/" className="flex items-center gap-2 group">
+      <span className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${
+        scrolled ? "text-black" : "text-white"
+      }`}>
+        Ga<span className="text-primary">ia</span>Labs
       </span>
     </Link>
   );

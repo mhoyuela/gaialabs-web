@@ -1,0 +1,37 @@
+const http = require('http');
+
+const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
+
+const server = http.createServer((req, res) => {
+    // CORS headers para permitir peticiones desde el frontend
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Content-Type', 'application/json');
+    
+    // Manejar diferentes rutas
+    if (req.url === '/test' && req.method === 'GET') {
+        res.statusCode = 200;
+        const response = {
+            success: true,
+            message: 'API Node.js funcionando correctamente!',
+            timestamp: new Date().toISOString(),
+            server: 'Node.js + Nginx Proxy'
+        };
+        res.end(JSON.stringify(response, null, 2));
+    } else {
+        res.statusCode = 200;
+        const response = {
+            message: 'Hola desde Node.js!',
+            timestamp: new Date().toISOString(),
+            path: req.url,
+            method: req.method
+        };
+        res.end(JSON.stringify(response, null, 2));
+    }
+});
+
+server.listen(PORT, HOST, () => {
+    console.log(`Servidor Node.js corriendo en http://${HOST}:${PORT}`);
+});

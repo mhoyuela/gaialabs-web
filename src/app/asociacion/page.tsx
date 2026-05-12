@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle , CardFooter} from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Calendar, Group, Lightbulb, Target, Trophy, Users } from "lucide-react";
+import { Calendar, Group, Lightbulb, Target, Trophy, Users, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,13 +10,15 @@ const events = [
     title: "Formaciones y Workshops",
     description: "Cursos intensivos y talleres prácticos sobre las últimas tecnologías. Aprende sobre IA, desarrollo blockchain, ciberseguridad y más, de la mano de expertos de la industria.",
     icon: <Lightbulb className="w-8 h-8 text-primary" />,
-    date: "Mensuales"
+    date: "Mensuales",
+    href: "/asociacion/formaciones"
   },
   {
     title: "Hackathones y Competiciones",
     description: "Eventos de fin de semana para resolver retos reales, desarrollar prototipos y competir por premios. Una oportunidad única para innovar y demostrar tu talento.",
     icon: <Trophy className="w-8 h-8 text-primary" />,
-    date: "Trimestrales"
+    date: "Trimestrales",
+    href: "/asociacion/hackathon" // <-- AÑADIDO ESTE ENLACE
   },
   {
     title: "Networking y Meetups",
@@ -29,7 +31,7 @@ const events = [
 const values = [
   {
     title: "Misión",
-    description: "Democratizar el acceso al conocimiento tecnológico avanzado y fomentar un ecosistema de innovación abierta y colaborativa.",
+    description: "Democratizar el acceso al conocimiento tecnológico y fomentar un ecosistema de innovación abierta y colaborativa.",
     icon: <Target className="w-10 h-10 text-primary" />
   },
   {
@@ -45,21 +47,16 @@ const values = [
 ];
 
 export default function AsociacionPage() {
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-asociacion');
-  
   return (
     <div className="flex flex-col">
       <section className="relative w-full h-[60vh] flex items-center justify-center text-center">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
+        <Image
+          src="/images/Gemini_Generated_Image_rxa9tyrxa9tyrxa9.png"
+          alt="Comunidad, Aprendizaje y Valores"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 p-4 max-w-4xl animate-in fade-in slide-in-from-bottom-12 duration-1000">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white font-headline">
@@ -91,11 +88,23 @@ export default function AsociacionPage() {
                   <CardTitle className="text-xl font-headline">{event.title}</CardTitle>
                   <CardDescription className="mt-2">{event.description}</CardDescription>
                 </CardContent>
-                <CardFooter className="flex flex-col items-center">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Calendar className="w-4 h-4" />
-                        <span>{event.date}</span>
-                    </div>
+                <CardFooter className="flex flex-col items-center gap-4"> 
+                  
+                  {/* --- BOTÓN DINÁMICO MODIFICADO --- */}
+                  {/* Ahora aparecerá en cualquier tarjeta que tenga configurado un 'href' en el array de arriba */}
+                  {event.href && (
+                    <Button asChild variant="link" className="text-primary hover:text-primary/80 font-semibold p-0 h-auto">
+                      <Link href={event.href} className="flex items-center">
+                        Saber más <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
+                    </Button>
+                  )}
+                  {/* --------------------------------- */}
+
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Calendar className="w-4 h-4" />
+                    <span>{event.date}</span>
+                  </div>
                 </CardFooter>
               </Card>
             ))}

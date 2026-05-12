@@ -4,58 +4,60 @@
 
 @layer base {
   :root {
-    --background: 0 0% 96%;
-    --foreground: 240 10% 3.9%;
+  
+    --background: 0 0% 100%; /* Blanco (#FFFFFF) */
+    --foreground: 0 0% 0%; /* Negro (#000000) */
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card: 0 0% 100%; /* Blanco (#FFFFFF) para las cajas */
+    --card-foreground: 0 0% 100%; /* Texto blanco (#FFFFFF) */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover: 220 11% 65%; /* Gris (#94A3B8) */
+    --popover-foreground: 0 0% 100%; /* Blanco (#FFFFFF) */
 
-    --primary: 147 43% 47%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 38 95% 59%; /* Naranja (#F59E0B) */
+    --primary-foreground: 0 0% 100%; /* Blanco (#FFFFFF) */
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 220 11% 65%; /* Gris (#94A3B8) */
+    --secondary-foreground: 0 0% 100%; /* Blanco (#FFFFFF) */
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 220 11% 65%; /* Gris (#94A3B8) */
+    --muted-foreground: 0 0% 100%; /* Blanco (#FFFFFF) */
 
-    --accent: 183 100% 74%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 38 95% 59%; /* Naranja (#F59E0B) */
+    --accent-foreground: 0 0% 100%; /* Blanco (#FFFFFF) */
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 147 43% 47%;
+    --border: 220 11% 65%; /* Gris (#94A3B8) */
+    --input: 220 11% 65%; /* Gris (#94A3B8) */
+    --ring: 38 95% 59%; /* Naranja (#F59E0B) */
 
     --radius: 0.5rem;
 
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --chart-1: 38 95% 59%; /* Naranja (#F59E0B) */
+    --chart-2: 220 11% 65%; /* Gris (#94A3B8) */
+    --chart-3: 0 0% 0%; /* Negro (#000000) */
+    --chart-4: 38 95% 59%; /* Naranja (#F59E0B) */
+    --chart-5: 220 11% 65%; /* Gris (#94A3B8) */
+
+    --sidebar-background: 0 0% 100%; /* Blanco (#FFFFFF) */
+    --sidebar-foreground: 0 0% 0%; /* Negro (#000000) */
+    --sidebar-primary: 38 95% 59%; /* Naranja (#F59E0B) */
+    --sidebar-primary-foreground: 0 0% 100%; /* Blanco (#FFFFFF) */
+    --sidebar-accent: 220 11% 65%; /* Gris (#94A3B8) */
+    --sidebar-accent-foreground: 0 0% 0%; /* Negro (#000000) */
+    --sidebar-border: 220 11% 65%; /* Gris (#94A3B8) */
+    --sidebar-ring: 38 95% 59%; /* Naranja (#F59E0B) */
   }
 
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%; /* Blanco (#FFFFFF) para las cajas */
+    --card-foreground: 0 0% 100%; /* Texto blanco (#FFFFFF) */
+    /* ...rest of dark variables... */
 
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
@@ -96,6 +98,11 @@
   }
 }
 
+[class*="card"], .bg-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 13px rgba(0, 0, 0, 0.1) !important;
+  color: #000000 !important; /* Cambiar texto a negro */
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -103,4 +110,151 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+/* --- Estilo para la página de contacto --- */
+
+/* Fondo del header y sombra */
+body:has(.contacto-page) header {
+  background-color: white !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+}
+
+/* Ponemos el texto general en negro (Ga...labs y menú) */
+body:has(.contacto-page) header .text-white,
+body:has(.contacto-page) header a,
+body:has(.contacto-page) header button {
+  color: #000000 !important;
+}
+
+/* ¡RESCATE DE LA IA! 
+ Buscamos el span que tiene el color naranja corporativo y lo forzamos */
+body:has(.contacto-page) header span.text-orange-500,
+body:has(.contacto-page) header span.text-primary {
+  color: #f97316 !important; /* Tu naranja */
+}
+
+/* --- Estilo Global de Tarjetas/Cuadros --- */
+
+/* 1. Seleccionamos las tarjetas (normalmente son divs con bordes o sombras) */
+/* Este selector es amplio para captar la mayoría de tus cuadros */
+.container div[class*="bg-white"], 
+.container div[class*="bg-slate-50"],
+.container div[class*="rounded-xl"] {
+    background-color: #121212 !important; /* Negro mate profesional */
+    color: #ffffff !important;           /* Texto blanco */
+    border: 1px solid #2d2d2d;           /* Borde sutil para que no floten en el vacío */
+}
+
+/* 2. Aseguramos que los títulos dentro de los cuadros sean blancos */
+.container div[class*="rounded-xl"] h1,
+.container div[class*="rounded-xl"] h2,
+.container div[class*="rounded-xl"] h3,
+.container div[class*="rounded-xl"] p {
+    color: #ffffff !important;
+}
+
+/* 3. Rescatamos el enlace "Saber más" para que siga siendo Naranja */
+.container div[class*="rounded-xl"] a,
+.container div[class*="rounded-xl"] button:contains("Saber más") {
+    color: #f97316 !important; /* Tu naranja corporativo */
+    font-weight: 600;
+}
+
+/* 4. Efecto hover para que los cuadros se sientan vivos */
+.container div[class*="rounded-xl"]:hover {
+    border-color: #f97316; /* El borde se ilumina en naranja al pasar el ratón */
+    transition: all 0.3s ease;
+}
+
+/* Forzar texto blanco dentro de cualquier elemento que use el fondo de tarjeta */
+.bg-card, [class*="card"] {
+  color: #ffffff !important;
+}
+
+/* Asegurar que los párrafos y títulos dentro de las tarjetas sean negros */
+.bg-card p, 
+.bg-card h1, 
+.bg-card h2, 
+.bg-card h3,
+.bg-card div {
+  color: #000000 !important;
+}
+
+/* Rescatar el 'Saber más' para que NO sea blanco, sino Naranja */
+.bg-card a, 
+.bg-card .text-primary {
+  color: #f97316 !important;
+}
+/* --- FIX TOTAL MENÚ FORMACIONES --- */
+
+/* 1. Forzamos el fondo del header y borde inferior */
+body:has(.formaciones-page) header {
+  background-color: white !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  transition: all 0.3s ease;
+}
+
+/* 2. Forzamos que los enlaces (Asociación, Laboratorio, etc.) sean NEGROS */
+body:has(.formaciones-page) header nav a, 
+body:has(.formaciones-page) header a:not(.text-primary) {
+  color: #000000 !important;
+}
+
+/* 3. Aseguramos que el logo y el texto naranja "ia" se mantengan */
+body:has(.formaciones-page) header .text-primary,
+body:has(.formaciones-page) header span[class*="text-orange"] {
+  color: #f97316 !important;
+}
+
+/* 4. Si tienes botones en el menú (como el de 'N' abajo a la izquierda), los ponemos negros */
+body:has(.formaciones-page) header button {
+  color: #000000 !important;
+}
+/* Forzamos el color del texto del logo a negro */
+body:has(.formaciones-page) header .flex-1.justify-start,
+body:has(.formaciones-page) header .flex-1.justify-start * {
+  color: #000000 !important;
+  fill: #000000 !important; /* Por si el logo es un icono SVG */
+}
+
+/* Mantenemos la parte "Labs" o el detalle naranja en su color */
+body:has(.formaciones-page) header .text-primary,
+body:has(.formaciones-page) header span[class*="text-orange"] {
+  color: #f97316 !important;
+  fill: #f97316 !important;
+}
+
+/* --- FIX DEFINITIVO MENÚ MÓVIL --- */
+
+/* Forzamos el fondo del panel lateral a negro profundo */
+[data-radix-popper-content-wrapper], 
+div[role="dialog"][class*="SheetContent"],
+.fixed.inset-y-0.left-0.z-50 {
+    background-color: #020617 !important; /* El azul muy oscuro/negro de tu diseño */
+}
+
+/* Forzamos que todos los textos dentro del menú móvil sean blancos o grises */
+div[role="dialog"][class*="SheetContent"] a,
+div[role="dialog"][class*="SheetContent"] span,
+div[role="dialog"][class*="SheetContent"] p,
+div[role="dialog"][class*="SheetContent"] h2 {
+    color: #f8fafc !important; /* Blanco hueso */
+}
+
+/* El botón de cerrar (la X) también debe ser blanco */
+div[role="dialog"][class*="SheetContent"] button {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* El logo dentro del menú: si se ve negro, lo invertimos a blanco */
+div[role="dialog"][class*="SheetContent"] .flex-1.justify-start * {
+    color: white !important;
+}
+
+/* Mantenemos el naranja corporativo donde deba ir */
+div[role="dialog"][class*="SheetContent"] .text-primary,
+div[role="dialog"][class*="SheetContent"] [class*="text-orange"] {
+    color: #f97316 !important;
 }
