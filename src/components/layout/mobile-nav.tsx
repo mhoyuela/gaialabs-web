@@ -1,10 +1,12 @@
 "use client";
 
-import { Sheet, SheetContent, SheetHeader } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { NAV_LINKS } from "@/lib/constants";
 import Link from "next/link";
 import type { Dispatch, SetStateAction } from "react";
 import { Logo } from "../shared/logo";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -12,47 +14,37 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
-  // 1. Limpiamos la lista de enlaces de forma manual antes de renderizar
-  const filteredLinks = NAV_LINKS.filter(link => {
-    const isDashboard = 
-      link.href.toLowerCase().includes('dashboard') || 
-      link.label.toLowerCase().includes('dashboard');
-    return !isDashboard;
-  });
+  const pathname = usePathname();
+  const links = NAV_LINKS.filter(
+    (link) => !link.href.toLowerCase().includes("dashboard")
+  );
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetContent 
-        side="left" 
-        className="border-r-slate-800 text-white"
-        style={{ backgroundColor: '#020617', color: 'white' }} 
-      >
+      <SheetContent side="left" className="w-[85%] sm:max-w-sm">
         <SheetHeader>
-          <Logo />
+          <SheetTitle asChild>
+            <Logo />
+          </SheetTitle>
         </SheetHeader>
-        <div className="flex flex-col h-full py-8">
-          <nav className="flex flex-col gap-6">
-            {filteredLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-lg font-medium transition-colors"
-                style={{ color: '#cbd5e1' }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
+        <nav className="flex flex-col gap-1 mt-10">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "text-lg font-medium rounded-md px-3 py-3 transition-colors",
+                pathname === link.href
+                  ? "text-primary bg-primary/10"
+                  : "text-foreground hover:bg-muted"
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </SheetContent>
-      
-      {/* 2. SOLUCIÓN NUCLEAR: CSS para ocultar CUALQUIER link que vaya a dashboard */}
-      <style jsx global>{`
-        a[href*="dashboard"] {
-          display: none !important;
-        }
-      `}</style>
     </Sheet>
   );
 }
