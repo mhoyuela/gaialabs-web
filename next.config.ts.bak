@@ -1,6 +1,7 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
+/* configuration here */
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -28,14 +29,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/gaia-sense/:path*',
-        destination: 'https://www.gaialabs.site/gaia-sense/:path*',
-      },
-    ];
   },
 };
 

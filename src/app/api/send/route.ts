@@ -1,16 +1,23 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASSWORD,
+  },
+});
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { firstName, lastName, email, message } = body;
 
-    const data = await resend.emails.send({
-      from: 'GaiaLabs <contacto@gaialabs.es>',
-      to: ['info@gaialabs.es'],
+    // Enviar correo
+    await transporter.sendMail({
+      from: `GaiaLabs <${process.env.GMAIL_USER}>`,
+      to: 'info@gaialabs.es',
       subject: `Nuevo mensaje de: ${firstName} ${lastName}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px;">
@@ -23,9 +30,9 @@ export async function POST(req: Request) {
       replyTo: email,
     });
 
-    return NextResponse.json(data);
+    return NextResponse.json({ success: true, message: 'Correo enviado exitosamente' });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Error al enviar" }, { status: 500 });
+    console.error("Error al enviar correo:", error);
+    return NextResponse.json({ error: "Error al enviar el correo" }, { status: 500 });
   }
 }
